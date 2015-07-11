@@ -123,10 +123,6 @@ rvm use ruby --default
 rvm rubygems current
 gem install rails
 
-#install ruby gems
-sudo apt-get install rubygems
-
-
 ### install 
 >sudo apt-get install rar
 
