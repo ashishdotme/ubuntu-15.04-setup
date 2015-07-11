@@ -50,3 +50,90 @@ sudo apt-get install atom
 sudo add-apt-repository ppa:webupd8team/popcorntime
 sudo apt-get update
 sudo apt-get install popcorn-time
+
+#install essential tools
+sudo apt-get install python-software-properties curl git build-essential
+
+#setup git
+git config --global user.name "Ashish Patel"
+git config --global user.email "email@ashishpatel.in"
+
+ssh-keygen -t rsa -C "email@ashishpatel.in"
+cat ~/.ssh/id_rsa.pub
+
+
+#install oh my zsh
+sudo apt-get install zsh
+curl -L http://install.ohmyz.sh | zsh
+chsh -s `which zsh`
+
+#setup theme of zsh
+$ sudo nano ~/.zshrc
+
+#install lamp
+sudo apt-get update
+sudo apt-get install lamp-server^
+#sql password is blank
+sudo apt-get -y install phpmyadmin
+
+# Create websites folder in your home directory
+cd
+mkdir websites
+
+# Create symlink in /var/www folder
+cd /var/www/html
+sudo ln -s /home/ashish/websites
+
+#Setting Up Ownership and Permissions
+sudo chown -R $USER:$USER /var/www/html/
+sudo chmod -R 777 /var/www/html/
+
+#create virtual host file
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/ashish.dev.conf
+sudo atom /etc/apache2/sites-available/ashish.dev.conf
+     #   ServerAdmin webmaster@ashish.dev
+     #   ServerName ashish.dev
+     #   ServerAlias www.ashish.dev
+     #   DocumentRoot /var/www/html/websites
+     
+#enable new virtual host
+sudo a2dissite 000-default.conf
+sudo a2ensite ashish.dev.conf
+
+# Enable Apache Rewrite Module
+sudo a2enmod rewrite
+
+#restart apache
+sudo systemctl restart apache2
+
+#install node.js using nvm
+curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash
+source ~/.nvm/nvm.sh
+nvm install 0.10
+nvm use 0.10
+nvm alias default stable
+
+#install ruby on rails
+$ sudo apt-get update
+curl -L https://get.rvm.io | bash -s stable
+source ~/.rvm/scripts/rvm
+rvm requirements
+rvm install ruby
+rvm use ruby --default
+rvm rubygems current
+gem install rails
+
+
+
+### install 
+>sudo apt-get install rar
+
+### extract
+>rar e XXX.rar
+
+#install tomate
+RELEASE=`sed -n 's/VERSION_ID="\(.*\)"/\1/p' /etc/os-release`
+sudo wget -O- http://download.opensuse.org/repositories/home:/eliostvs:/tomate/xUbuntu_$RELEASE/Release.key | sudo apt-key add -
+sudo bash -c "echo 'deb http://download.opensuse.org/repositories/home:/eliostvs:/tomate/xUbuntu_$RELEASE/ ./' > /etc/apt/sources.list.d/tomate.list"
+sudo apt-get update && sudo apt-get install python-tomate
+
