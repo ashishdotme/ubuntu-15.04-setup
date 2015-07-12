@@ -112,6 +112,7 @@ source ~/.nvm/nvm.sh
 nvm install 0.10
 nvm use 0.10
 nvm alias default stable
+sudo apt-get install nodejs
 
 #install ruby on rails
 $ sudo apt-get update
