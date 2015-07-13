@@ -136,3 +136,18 @@ sudo wget -O- http://download.opensuse.org/repositories/home:/eliostvs:/tomate/x
 sudo bash -c "echo 'deb http://download.opensuse.org/repositories/home:/eliostvs:/tomate/xUbuntu_$RELEASE/ ./' > /etc/apt/sources.list.d/tomate.list"
 sudo apt-get update && sudo apt-get install python-tomate
 
+#gems
+gem install sass
+
+#install npm
+# Note the new setup script name for Node.js v0.12
+curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+
+# Then install with:
+sudo apt-get install -y nodejs
+npm install -g yo
+sudo npm install -g bower
+sudo npm install -g grunt-cli
+sudo npm install -g gulp
+
+
