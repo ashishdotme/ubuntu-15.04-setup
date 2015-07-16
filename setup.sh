@@ -70,6 +70,9 @@ chsh -s `which zsh`
 #setup theme of zsh
 $ sudo nano ~/.zshrc
 
+#setup zsh
+sudo chown -R root /usr/local/share/zsh/site-functions
+
 #install lamp
 sudo apt-get update
 sudo apt-get install lamp-server^
@@ -149,5 +152,7 @@ npm install -g yo
 sudo npm install -g bower
 sudo npm install -g grunt-cli
 sudo npm install -g gulp
+
+
 
 
